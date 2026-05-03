@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Hub pages -->
+  <url><loc>https://djpowerwashing.net/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://djpowerwashing.net/services.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://djpowerwashing.net/service-areas.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://djpowerwashing.net/about.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://djpowerwashing.net/faq.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://djpowerwashing.net/gallery.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://djpowerwashing.net/BeforeAfter.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://djpowerwashing.net/contact.html</loc><changefreq>yearly</changefreq><priority>0.8</priority></url>
+
+  <!-- Service detail pages -->
+  <url><loc>https://djpowerwashing.net/services/soft-house-wash.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://djpowerwashing.net/services/driveway-patio-cleaning.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://djpowerwashing.net/services/deck-paver-cleaning.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://djpowerwashing.net/services/gutter-cleaning.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://djpowerwashing.net/services/commercial-building-wash.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://djpowerwashing.net/services/window-cleaning.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://djpowerwashing.net/services/solar-panel-cleaning.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://djpowerwashing.net/services/dryer-vent-cleaning.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://djpowerwashing.net/services/awning-cleaning.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://djpowerwashing.net/services/downspout-jetting.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://djpowerwashing.net/services/christmas-light-installation.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://djpowerwashing.net/services/snow-removal.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
+  <!-- Service area / town pages -->
+  <url><loc>https://djpowerwashing.net/service-areas/bergen-county-nj.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://djpowerwashing.net/service-areas/saddle-brook-nj.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://djpowerwashing.net/service-areas/rochelle-park-nj.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://djpowerwashing.net/service-areas/lodi-nj.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://djpowerwashing.net/service-areas/garfield-nj.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://djpowerwashing.net/service-areas/elmwood-park-nj.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://djpowerwashing.net/service-areas/paramus-nj.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://djpowerwashing.net/service-areas/fair-lawn-nj.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://djpowerwashing.net/service-areas/hackensack-nj.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://djpowerwashing.net/service-areas/maywood-nj.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://djpowerwashing.net/service-areas/hasbrouck-heights-nj.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://djpowerwashing.net/service-areas/wood-ridge-nj.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://djpowerwashing.net/service-areas/wallington-nj.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://djpowerwashing.net/service-areas/lyndhurst-nj.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+</urlset>

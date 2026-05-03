@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Before &amp; After Gallery | D&amp;J Power Washing — Bergen County NJ</title>
+  <meta name="description" content="Real before and after power washing results from D&J Power Washing. Drag the sliders to see the transformation on homes and businesses across Bergen County, NJ.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://djpowerwashing.net/BeforeAfter.html">
+  <link rel="icon" href="images/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/main.css">
+
+  <meta property="og:title" content="Before &amp; After Gallery | D&amp;J Power Washing — Bergen County NJ">
+  <meta property="og:description" content="Drag the sliders to reveal real power washing transformations across Bergen County, NJ.">
+  <meta property="og:image" content="https://djpowerwashing.net/images/after-driveway.jpg">
+  <meta property="og:url" content="https://djpowerwashing.net/BeforeAfter.html">
+  <meta property="og:type" content="website">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "D&J Power Washing LLC & More",
+    "url": "https://djpowerwashing.net",
+    "telephone": ["(201) 917-8510", "(732) 766-6975"],
+    "email": "djpwllc@gmail.com",
+    "address": {"@type":"PostalAddress","addressLocality":"Saddle Brook","addressRegion":"NJ","addressCountry":"US"},
+    "areaServed": ["Bergen County NJ","Saddle Brook NJ","Paramus NJ","Hackensack NJ","Fair Lawn NJ","Lodi NJ","Rochelle Park NJ"],
+    "image": "https://djpowerwashing.net/images/logo.png"
+  }
+  </script>
+
+  <style>
+    /* ─── BEFORE/AFTER COMPARISON SLIDER (page-specific) ─── */
+    .ba-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+    }
+    .ba-grid .grid-wide { grid-column: 1 / -1; }
+    @media (max-width: 860px) {
+      .ba-grid { grid-template-columns: 1fr; gap: 20px; }
+      .ba-grid .grid-wide { grid-column: 1; }
+    }
+
+    .ba-tile {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--r-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-card), 0 -4px 24px rgba(11,188,212,0.10);
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow .3s var(--ease), transform .3s var(--ease);
+    }
+    .ba-tile:hover {
+      box-shadow: var(--shadow-hover), 0 -6px 32px rgba(11,188,212,0.22);
+      transform: translateY(-3px);
+    }
+    .ba-tile .ba-head {
+      padding: 16px 22px;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .ba-tile .svc-badge {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--teal-dark);
+      background: var(--teal-light);
+      border: 1px solid rgba(11,188,212,0.28);
+      padding: 5px 12px;
+      border-radius: 999px;
+    }
+    .ba-tile .loc-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-soft);
+    }
+
+    .comparison {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      cursor: col-resize;
+      overflow: hidden;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: pan-y;
+      background: #0A1628;
+    }
+    .grid-wide .comparison { aspect-ratio: 21 / 8; }
+    @media (max-width: 860px) {
+      .grid-wide .comparison { aspect-ratio: 16 / 10; }
+    }
+
+    .comparison img.ba-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      pointer-events: none;
+    }
+    .comparison img.ba-img-after { clip-path: inset(0 50% 0 0); }
+
+    .lbl {
+      position: absolute;
+      bottom: 14px;
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      padding: 6px 13px;
+      border-radius: 999px;
+      pointer-events: none;
+      z-index: 10;
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(255,255,255,0.14);
+    }
+    .lbl-b {
+      left: 14px;
+      background: rgba(15,25,45,0.78);
+      color: rgba(255,255,255,0.88);
+    }
+    .lbl-a {
+      right: 14px;
+      background: rgba(11,188,212,0.92);
+      color: #fff;
+      border-color: rgba(255,255,255,0.3);
+    }
+
+    .handle {
+      position: absolute;
+      top: 0; bottom: 0;
+      left: 50%;
+      width: 48px;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 20;
+      pointer-events: none;
+    }
+    .handle-track {
+      position: absolute;
+      top: 0; bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 2px;
+      background: rgba(255,255,255,0.92);
+      box-shadow: 0 0 12px rgba(11,188,212,0.55);
+    }
+    .handle-knob {
+      position: relative;
+      z-index: 2;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: #fff;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.4), 0 0 0 4px rgba(11,188,212,0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid rgba(255,255,255,0.85);
+    }
+    .handle-icon {
+      font-size: 14px;
+      letter-spacing: -3px;
+      color: var(--navy);
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .ba-foot {
+      padding: 14px 22px;
+      border-top: 1px solid var(--line);
+      font-size: 13px;
+      color: var(--text-soft);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .ba-foot-icon { color: var(--teal); flex-shrink: 0; font-size: 16px; }
+  </style>
+</head>
+<body>
+
+<!-- ========== HEADER ========== -->
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="site-logo" aria-label="D&J Power Washing — Saddle Brook NJ home">
+      <img src="images/logo.png" alt="D&J Power Washing LLC & More — Saddle Brook NJ">
+    </a>
+    <nav class="primary-nav" aria-label="Primary">
+      <div class="nav-item">
+        <a class="nav-link" href="services.html">Services <span class="caret">▾</span></a>
+        <div class="nav-dropdown mega">
+          <div class="mega-col">
+            <div class="mega-label">Residential</div>
+            <a href="services/soft-house-wash.html">Soft House Wash</a>
+            <a href="services/driveway-patio-cleaning.html">Driveway, Patio &amp; Sidewalk</a>
+            <a href="services/deck-paver-cleaning.html">Deck &amp; Paver Cleaning</a>
+            <a href="services/gutter-cleaning.html">Gutter Cleaning</a>
+            <a href="services/window-cleaning.html">Window Cleaning</a>
+            <a href="services/solar-panel-cleaning.html">Solar Panel Cleaning</a>
+          </div>
+          <div class="mega-col">
+            <div class="mega-label">Specialty &amp; Seasonal</div>
+            <a href="services/commercial-building-wash.html">Commercial Building Wash</a>
+            <a href="services/dryer-vent-cleaning.html">Dryer Vent Cleaning</a>
+            <a href="services/awning-cleaning.html">Awning Cleaning</a>
+            <a href="services/downspout-jetting.html">Perimeter Downspout Jetting</a>
+            <a href="services/christmas-light-installation.html">Christmas Light Installation</a>
+            <a href="services/snow-removal.html">Snow Removal</a>
+          </div>
+          <div class="mega-foot">
+            <span>12 services · Bergen County, NJ</span>
+            <a href="services.html">View All Services →</a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a class="nav-link" href="service-areas.html">Service Areas <span class="caret">▾</span></a>
+        <div class="nav-dropdown mega">
+          <div class="mega-col">
+            <div class="mega-label">North Bergen County</div>
+            <a href="service-areas/bergen-county-nj.html">Bergen County, NJ</a>
+            <a href="service-areas/saddle-brook-nj.html">Saddle Brook ★</a>
+            <a href="service-areas/rochelle-park-nj.html">Rochelle Park</a>
+            <a href="service-areas/lodi-nj.html">Lodi</a>
+            <a href="service-areas/garfield-nj.html">Garfield</a>
+            <a href="service-areas/elmwood-park-nj.html">Elmwood Park</a>
+            <a href="service-areas/paramus-nj.html">Paramus</a>
+          </div>
+          <div class="mega-col">
+            <div class="mega-label">South Bergen County</div>
+            <a href="service-areas/fair-lawn-nj.html">Fair Lawn</a>
+            <a href="service-areas/hackensack-nj.html">Hackensack</a>
+            <a href="service-areas/maywood-nj.html">Maywood</a>
+            <a href="service-areas/hasbrouck-heights-nj.html">Hasbrouck Heights</a>
+            <a href="service-areas/wood-ridge-nj.html">Wood-Ridge</a>
+            <a href="service-areas/wallington-nj.html">Wallington</a>
+            <a href="service-areas/lyndhurst-nj.html">Lyndhurst</a>
+          </div>
+          <div class="mega-foot">
+            <span>13 towns · All of Bergen County</span>
+            <a href="service-areas.html">View All Areas →</a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></div>
+      <div class="nav-item"><a class="nav-link" href="BeforeAfter.html">Before &amp; After</a></div>
+      <div class="nav-item"><a class="nav-link" href="about.html">About</a></div>
+      <div class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></div>
+    </nav>
+    <div class="header-cta">
+      <a href="tel:2019178510" class="header-phone" aria-label="Call (201) 917-8510">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.95.36 1.88.68 2.78a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.3-1.25a2 2 0 0 1 2.11-.45c.9.32 1.83.55 2.78.68A2 2 0 0 1 22 16.92z"/></svg>
+        <span>(201) 917-8510</span>
+      </a>
+      <a href="contact.html" class="btn btn-primary">Free Estimate <span class="arrow">→</span></a>
+      <button class="mobile-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+<aside class="mobile-drawer">
+  <div class="group-label">Main</div>
+  <a href="index.html">Home</a><a href="services.html">All Services</a><a href="service-areas.html">Service Areas</a><a href="gallery.html">Gallery</a><a href="BeforeAfter.html">Before &amp; After</a><a href="about.html">About</a><a href="faq.html">FAQ</a><a href="contact.html">Contact</a>
+  <div class="phone-block"><div class="lbl">Saddle Brook, NJ</div><a href="tel:2019178510">(201) 917-8510</a><div class="lbl" style="margin-top:8px">Seaside Park, NJ</div><a href="tel:7327666975">(732) 766-6975</a></div>
+  <a href="contact.html" class="cta">Get Your Free Estimate →</a>
+</aside>
+
+<main>
+
+<section class="page-hero">
+  <span class="glow-top" aria-hidden="true"></span>
+  <div class="container">
+    <div class="crumbs"><a href="index.html">Home</a> <span class="sep">/</span> <span>Before &amp; After</span></div>
+    <h1>Real North Jersey Results — Drag to See the Difference</h1>
+    <p class="lead">Every job below was completed by D&amp;J Power Washing on actual homes and businesses throughout Bergen County, NJ. Drag any slider to see the transformation for yourself.</p>
+  </div>
+</section>
+
+<section class="container">
+  <div class="stats reveal-up" style="margin-top:-60px">
+    <div class="stat"><div class="num">800+</div><div class="lbl">Jobs Completed</div></div>
+    <div class="stat"><div class="num">15</div><div class="lbl">Years Serving Bergen County</div></div>
+    <div class="stat"><div class="num">5.0★</div><div class="lbl">Google Rated</div></div>
+    <div class="stat"><div class="num">100%</div><div class="lbl">Satisfaction Guaranteed</div></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Real Projects · Real Properties</span>
+      <h2>The D&amp;J Difference</h2>
+      <p class="lead">Drag any slider left or right to reveal what professional power washing does. No filters. No staging. Just results.</p>
+    </div>
+
+    <div class="ba-grid">
+
+      <!-- Soft House Wash -->
+      <div class="ba-tile">
+        <div class="ba-head">
+          <span class="svc-badge">Soft House Wash</span>
+          <span class="loc-tag">📍 Saddle Brook, NJ</span>
+        </div>
+        <div class="comparison" data-slider>
+          <img class="ba-img ba-img-before" src="images/before-vinyl-siding.jpg" alt="Dirty vinyl siding with algae and mold streaks before soft house wash — Saddle Brook NJ" loading="lazy">
+          <img class="ba-img ba-img-after" src="images/after-vinyl-siding.jpg" alt="Clean white vinyl siding after D&J Power Washing soft house wash — Saddle Brook NJ" loading="lazy">
+          <span class="lbl lbl-b">Before</span>
+          <span class="lbl lbl-a">After</span>
+          <div class="handle" data-handle>
+            <div class="handle-track"></div>
+            <div class="handle-knob"><span class="handle-icon">◀▶</span></div>
+          </div>
+        </div>
+        <div class="ba-foot">
+          <span class="ba-foot-icon">↔</span>
+          Green algae, black mold streaks &amp; oxidation removed from vinyl siding
+        </div>
+      </div>
+
+      <!-- Driveway -->
+      <div class="ba-tile">
+        <div class="ba-head">
+          <span class="svc-badge">Driveway &amp; Patio Cleaning</span>
+          <span class="loc-tag">📍 Rochelle Park, NJ</span>
+        </div>
+        <div class="comparison" data-slider>
+          <img class="ba-img ba-img-before" src="images/before-driveway.jpg" alt="Stained concrete driveway with oil spots before pressure washing — Rochelle Park NJ" loading="lazy">
+          <img class="ba-img ba-img-after" src="images/after-driveway.jpg" alt="Clean concrete driveway after D&J Power Washing — Rochelle Park NJ" loading="lazy">
+          <span class="lbl lbl-b">Before</span>
+          <span class="lbl lbl-a">After</span>
+          <div class="handle" data-handle>
+            <div class="handle-track"></div>
+            <div class="handle-knob"><span class="handle-icon">◀▶</span></div>
+          </div>
+        </div>
+        <div class="ba-foot">
+          <span class="ba-foot-icon">↔</span>
+          Oil stains, tire marks &amp; years of grime lifted from concrete
+        </div>
+      </div>
+
+      <!-- Deck -->
+      <div class="ba-tile">
+        <div class="ba-head">
+          <span class="svc-badge">Deck &amp; Wood Cleaning</span>
+          <span class="loc-tag">📍 Lodi, NJ</span>
+        </div>
+        <div class="comparison" data-slider>
+          <img class="ba-img ba-img-before" src="images/before-deck.jpg" alt="Weathered gray wood deck with algae before cleaning — Lodi NJ" loading="lazy">
+          <img class="ba-img ba-img-after" src="images/after-deck.jpg" alt="Restored cedar wood deck after D&J Power Washing — Lodi NJ" loading="lazy">
+          <span class="lbl lbl-b">Before</span>
+          <span class="lbl lbl-a">After</span>
+          <div class="handle" data-handle>
+            <div class="handle-track"></div>
+            <div class="handle-knob"><span class="handle-icon">◀▶</span></div>
+          </div>
+        </div>
+        <div class="ba-foot">
+          <span class="ba-foot-icon">↔</span>
+          Gray UV-oxidized deck restored — algae, mold &amp; weathering removed
+        </div>
+      </div>
+
+      <!-- Gutters -->
+      <div class="ba-tile">
+        <div class="ba-head">
+          <span class="svc-badge">Gutter Cleaning</span>
+          <span class="loc-tag">📍 Fair Lawn, NJ</span>
+        </div>
+        <div class="comparison" data-slider>
+          <img class="ba-img ba-img-before" src="images/before-gutters.jpg" alt="Clogged debris-filled gutter before cleaning — Fair Lawn NJ" loading="lazy">
+          <img class="ba-img ba-img-after" src="images/after-gutters.jpg" alt="Clean gutter after D&J Power Washing service — Fair Lawn NJ" loading="lazy">
+          <span class="lbl lbl-b">Before</span>
+          <span class="lbl lbl-a">After</span>
+          <div class="handle" data-handle>
+            <div class="handle-track"></div>
+            <div class="handle-knob"><span class="handle-icon">◀▶</span></div>
+          </div>
+        </div>
+        <div class="ba-foot">
+          <span class="ba-foot-icon">↔</span>
+          Leaves, debris &amp; buildup removed — proper drainage restored
+        </div>
+      </div>
+
+      <!-- Commercial (full width) -->
+      <div class="ba-tile grid-wide">
+        <div class="ba-head">
+          <span class="svc-badge">Commercial Building Wash</span>
+          <span class="loc-tag">📍 Paramus, NJ</span>
+        </div>
+        <div class="comparison" data-slider>
+          <img class="ba-img ba-img-before" src="images/before-commercial.jpg" alt="Dirty commercial building facade before power washing — Paramus NJ Bergen County" loading="lazy">
+          <img class="ba-img ba-img-after" src="images/after-commercial.jpg" alt="Clean commercial building after D&J Power Washing — Paramus NJ Bergen County" loading="lazy">
+          <span class="lbl lbl-b">Before</span>
+          <span class="lbl lbl-a">After</span>
+          <div class="handle" data-handle>
+            <div class="handle-track"></div>
+            <div class="handle-knob"><span class="handle-icon">◀▶</span></div>
+          </div>
+        </div>
+        <div class="ba-foot">
+          <span class="ba-foot-icon">↔</span>
+          Commercial facade, entry surround &amp; signage base — roof runoff streaks &amp; algae fully eliminated
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="container">
+    <div class="cta-banner">
+      <div>
+        <span class="eyebrow dark">Like What You See?</span>
+        <h2>Ready for Results Like These on Your Property?</h2>
+        <p>D&amp;J Power Washing serves Saddle Brook, Bergen County, and all surrounding North Jersey communities. Family-owned. Free on-site estimates. Satisfaction guaranteed.</p>
+        <div class="phone-line"><a href="tel:2019178510" style="color:inherit">(201) 917-8510 — Saddle Brook</a></div>
+      </div>
+      <div class="actions"><a href="contact.html" class="btn btn-primary">Get Your Free Estimate <span class="arrow">→</span></a></div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="images/logoFOOTER.png" alt="D&J Power Washing LLC & More">
+        <p>Family-owned exterior cleaning serving Saddle Brook and all of Bergen County, NJ since 2009. Precision. Care. Excellence.</p>
+        <a href="https://livewebstudios.com" class="badge" target="_blank" rel="noopener"><img src="images/verifiedsecured.png" alt="Verified &amp; Secured by Live Web Studios"></a>
+      </div>
+      <div><h4>Services</h4><ul>
+        <li><a href="services/soft-house-wash.html">Soft House Wash</a></li>
+        <li><a href="services/driveway-patio-cleaning.html">Driveway &amp; Patio</a></li>
+        <li><a href="services/deck-paver-cleaning.html">Deck &amp; Paver</a></li>
+        <li><a href="services/gutter-cleaning.html">Gutter Cleaning</a></li>
+        <li><a href="services/commercial-building-wash.html">Commercial Wash</a></li>
+        <li><a href="services.html">View All Services →</a></li>
+      </ul></div>
+      <div><h4>Service Areas</h4><ul>
+        <li><a href="service-areas/saddle-brook-nj.html">Saddle Brook, NJ</a></li>
+        <li><a href="service-areas/rochelle-park-nj.html">Rochelle Park, NJ</a></li>
+        <li><a href="service-areas/paramus-nj.html">Paramus, NJ</a></li>
+        <li><a href="service-areas/fair-lawn-nj.html">Fair Lawn, NJ</a></li>
+        <li><a href="service-areas/hackensack-nj.html">Hackensack, NJ</a></li>
+        <li><a href="service-areas/lodi-nj.html">Lodi, NJ</a></li>
+        <li><a href="service-areas.html">View All Areas →</a></li>
+      </ul></div>
+      <div class="footer-contact">
+        <h4>Get In Touch</h4>
+        <div class="row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.95.36 1.88.68 2.78a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.3-1.25a2 2 0 0 1 2.11-.45c.9.32 1.83.55 2.78.68A2 2 0 0 1 22 16.92z"/></svg><div><a href="tel:2019178510">(201) 917-8510</a><br><a href="tel:7327666975">(732) 766-6975</a></div></div>
+        <div class="row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg><a href="mailto:djpwllc@gmail.com">djpwllc@gmail.com</a></div>
+        <div class="row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Saddle Brook, NJ<br>Bergen County</div>
+        <div class="row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>Mon–Sat · 7:00 AM – 6:00 PM</div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© <span data-year>2026</span> D&amp;J Power Washing LLC &amp; More · All Rights Reserved</div>
+      <div>Designed by <a href="https://livewebstudios.com" target="_blank" rel="noopener">Live Web Studios</a></div>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+<script>
+  /* Before/After comparison slider */
+  (function () {
+    document.querySelectorAll('[data-slider]').forEach(function (comp) {
+      var after  = comp.querySelector('.ba-img-after');
+      var handle = comp.querySelector('[data-handle]');
+      if (!after || !handle) return;
+      var active = false;
+
+      function move(cx) {
+        var r   = comp.getBoundingClientRect();
+        var pct = Math.max(2, Math.min(98, (cx - r.left) / r.width * 100));
+        after.style.clipPath = 'inset(0 ' + (100 - pct) + '% 0 0)';
+        handle.style.left    = pct + '%';
+      }
+
+      comp.addEventListener('mousedown', function (e) {
+        active = true; move(e.clientX); e.preventDefault();
+      });
+      window.addEventListener('mouseup',   function () { active = false; });
+      window.addEventListener('mousemove', function (e) { if (active) move(e.clientX); });
+
+      comp.addEventListener('touchstart', function (e) {
+        active = true; move(e.touches[0].clientX);
+      }, { passive: true });
+      window.addEventListener('touchend',  function () { active = false; });
+      window.addEventListener('touchmove', function (e) {
+        if (active) move(e.touches[0].clientX);
+      }, { passive: true });
+
+      after.style.clipPath = 'inset(0 50% 0 0)';
+      handle.style.left    = '50%';
+    });
+  })();
+</script>
+</body>
+</html>
