@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
 
+Disallow: /admin/
+Disallow: /_content/
+
 Sitemap: https://djpowerwashing.net/sitemap.xml
