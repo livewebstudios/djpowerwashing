@@ -327,6 +327,12 @@
       }
       posts.sort(function (a, b) { return new Date(b.date) - new Date(a.date); });
       list.innerHTML = posts.map(renderCard).join('');
+      var cards = list.querySelectorAll('.blog-card');
+      for (var i = 0; i < cards.length; i++) {
+        (function (el, idx) {
+          setTimeout(function () { el.classList.add('in'); }, 60 * idx);
+        })(cards[i], i);
+      }
     })
     .catch(function (err) {
       list.innerHTML = '<div class="blog-error">Sorry — we couldn\'t load posts right now. Please try again shortly.</div>';
