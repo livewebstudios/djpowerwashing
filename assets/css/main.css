@@ -1214,10 +1214,8 @@ main { padding-top: var(--header-h); }
 .site-footer a:hover { color: var(--teal); }
 .site-footer ul li { margin-bottom: 10px; font-size: 14.5px; }
 
-.footer-brand img { height: 56px; width: auto; margin-bottom: 18px; }
+.footer-brand img { height: 84px; width: auto; margin-bottom: 18px; }
 .footer-brand p { color: rgba(255,255,255,0.6); font-size: 14px; margin-bottom: 22px; max-width: 32ch; line-height: 1.6; }
-.footer-brand .badge { margin-top: 14px; }
-.footer-brand .badge img { width: auto; height: auto; max-width: 120px; }
 
 .footer-contact .row { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 16px; font-size: 14px; }
 .footer-contact .row svg { color: var(--teal); flex-shrink: 0; width: 18px; height: 18px; margin-top: 2px; }
@@ -1239,6 +1237,9 @@ main { padding-top: var(--header-h); }
 }
 .footer-bottom a { color: rgba(255,255,255,0.7); }
 .footer-bottom a:hover { color: var(--teal); }
+.footer-bottom .lws-badge { display: inline-flex; line-height: 0; vertical-align: middle; margin-left: 4px; }
+.footer-bottom .lws-badge img { height: 28px; width: auto; opacity: 0.92; transition: opacity .15s var(--ease); }
+.footer-bottom .lws-badge:hover img { opacity: 1; }
 
 /* ---------- TOWNS LIST CHIPS ---------- */
 .chip-list { display: flex; flex-wrap: wrap; gap: 10px; }
