@@ -268,8 +268,10 @@ p  { color: var(--text); }
 .nav-dropdown a {
   display: block;
   padding: 10px 14px;
-  font-size: 14px;
-  font-weight: 500;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
   color: var(--text);
   border-radius: var(--r-sm);
   transition: background .15s var(--ease), color .15s var(--ease), padding .15s var(--ease);
@@ -312,8 +314,10 @@ p  { color: var(--text); }
 .nav-dropdown.mega a {
   display: block;
   padding: 9px 12px;
-  font-size: 14px;
-  font-weight: 500;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
   color: var(--navy);
   border-radius: var(--r-sm);
   border-left: 2px solid transparent;
@@ -1212,7 +1216,8 @@ main { padding-top: var(--header-h); }
 }
 .site-footer a { color: rgba(255,255,255,0.7); transition: color .15s var(--ease); }
 .site-footer a:hover { color: var(--teal); }
-.site-footer ul li { margin-bottom: 10px; font-size: 14.5px; }
+.site-footer ul li { margin-bottom: 10px; font-size: 13px; }
+.site-footer ul li a { text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; }
 
 .footer-brand img { height: 84px; width: auto; margin-bottom: 18px; }
 .footer-brand p { color: rgba(255,255,255,0.6); font-size: 14px; margin-bottom: 22px; max-width: 32ch; line-height: 1.6; }
